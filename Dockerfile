@@ -14,9 +14,13 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5000
+# # Make port 5000 available to the world outside this container
+# EXPOSE 5000
 
 
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+# # Run app.py when the container launches
+# CMD ["python", "app.py"]
+
+ENV FLASK_RUN_PORT=3000
+EXPOSE 3000
+CMD ["flask", "run", "--host=0.0.0.0"]
